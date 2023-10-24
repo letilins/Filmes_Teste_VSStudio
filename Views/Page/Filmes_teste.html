@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Filmes</title>
+</head>
+<body>
+    <h1>Lista de Filmes</h1>
+
+    <table id="movieTable">
+        <tr>
+            <th>Nome do Filme</th>
+            <th>Data de Lançamento</th>
+        </tr>
+    </table>
+
+    <script>/
+        fetch('/api/Filme')
+            .then(response => response.json())
+            .then(data => {
+                const movieTable = document.getElementById('movieTable');
+
+                data.forEach(filme => {
+                    const row = movieTable.insertRow();
+                    const cell1 = row.insertCell(0);
+                    const cell2 = row.insertCell(1);
+
+                    cell1.innerHTML = filme.nome; 
+                    cell2.innerHTML = new Date(filme.dataLancamento).toLocaleDateString(); 
+                });
+            })
+            .catch(error => {
+                console.error('Ocorreu um erro ao obter a lista de filmes:', error);
+            });</script>
+</body>
+</html>
