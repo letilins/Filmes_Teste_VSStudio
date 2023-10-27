@@ -32,7 +32,7 @@ public class FilmeController : ControllerBase
             return NotFound();
         }
         existingMovie.Nome = filme.Nome;
-        existingMovie.DataLancamento = filme.DataLancamento; // Corrija o nome da propriedade.
+        existingMovie.DataLancamento = filme.DataLancamento; 
         return NoContent();
     }
 
