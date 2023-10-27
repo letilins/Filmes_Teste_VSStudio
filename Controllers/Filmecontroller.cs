@@ -9,7 +9,6 @@ using Filmes_Teste.Models;
 public class FilmeController : ControllerBase
 {
     private List<Filme> Filmes = new List<Filme>();
-
     // GET
     [HttpGet("{id}", Name = "Get")]
     public ActionResult<Filme> Get(int id)
